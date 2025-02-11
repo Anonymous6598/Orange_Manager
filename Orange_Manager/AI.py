@@ -5,10 +5,10 @@ class AI_Window(customtkinter.CTk):
 	def __init__(self: typing.Self, *args, **kwargs) -> None:
 		super().__init__(*args, **kwargs)
 
-		customtkinter.deactivate_automatic_dpi_awareness()
 		self.title("ai chatbot")
 		self.geometry(f"525x300")
 		self.resizable(False, False)
+		self.iconbitmap("slike/Orange_Manager.ico")
 
 		self.ai_window_textbox = customtkinter.CTkTextbox(master=self, height=265, width=524, corner_radius=0, fg_color=f"transparent", text_color=(f"black", f"white"))
 		self.ai_window_textbox.place(x=0, y=0)

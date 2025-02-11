@@ -11,7 +11,7 @@
     <OutputPath>.</OutputPath>
     <Name>Orange_Manager</Name>
     <RootNamespace>Orange_Manager</RootNamespace>
-    <InterpreterId>Global|PythonCore|3.13</InterpreterId>
+    <InterpreterId>Global|VisualStudio|Python 3.13</InterpreterId>
     <IsWindowsApplication>False</IsWindowsApplication>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -27,6 +27,9 @@
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|PythonCore|3.13" />
+    <InterpreterReference Include="Global|PythonCore|3.13t" />
+    <InterpreterReference Include="Global|VisualStudio|Python 3.13" />
+    <InterpreterReference Include="Global|VisualStudio|Python313" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

@@ -9,6 +9,7 @@ class Notes(customtkinter.CTk):
 
         self.title("Notes")
         self.geometry("600x500")
+        self.iconbitmap("slike/Orange_Manager.ico")
 
         self.menu_bar = CTkMenuBar.CTkTitleMenu(self)
         self.config(menu=self.menu_bar)
