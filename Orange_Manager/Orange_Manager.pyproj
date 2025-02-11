@@ -12,6 +12,7 @@
     <Name>Orange_Manager</Name>
     <RootNamespace>Orange_Manager</RootNamespace>
     <InterpreterId>Global|PythonCore|3.13</InterpreterId>
+    <IsWindowsApplication>False</IsWindowsApplication>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
