@@ -80,7 +80,7 @@ class App(customtkinter.CTk):
     def LoadData(self):
         self.tablevalue[:] = []
         try:
-            with open(tkinter.filedialog.askopenfilename(defaultextension=".csv", filetypes=[("CSV Files", "*.csv"), ("All Files", "*.*")]), "r+", newline="") as self.file:
+            with open(tkinter.filedialog.askopenfilename(filetypes=[("CSV Files", "*.csv"), ("All Files", "*.*")]), "r+", newline="") as self.file:
                 self.reader = csv.reader(self.file)
                 for self.row in self.reader:
                     self.tablevalue.append(self.row)
