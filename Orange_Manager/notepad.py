@@ -30,7 +30,7 @@ class Notes(customtkinter.CTk):
                     self.file.write(self.text_area.get("1.0", tkinter.END))
                     tkinter.messagebox.showinfo("Sacuvano", "Beleska je uspesno sacuvana.")
             
-            except Exception as e:
+            except FileNotFoundError as e:
                 tkinter.messagebox.showerror("Greska", f"Doslo je do greske pri cuvanju: {e}")
 
 
@@ -44,12 +44,11 @@ class Notes(customtkinter.CTk):
                     self.text_area.delete("1.0", "end")
                     self.text_area.insert("1.0", self.content)
            
-           except Exception("Fajl ne postoji") as e:
+           except FileNotFoundError("Fajl ne postoji") as e:
                tkinter.messagebox.showerror("Greska", f"Doslo je do greske pri otvaranju: {e}")
        
     def clear_text(self):
         self.text_area.delete("1.0", "end")    
 
 if __name__ == "__main__":
-    app = Notes().mainloop()
-                                     
+    app = Notes().mainloop()           
