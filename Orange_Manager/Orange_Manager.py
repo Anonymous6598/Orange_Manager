@@ -1,4 +1,3 @@
-from email.policy import default
 import customtkinter, CTkMenuBar, CTkTable, tkinter, tkinter.filedialog, tkinter.messagebox, sys, csv
 
 class App(customtkinter.CTk):
