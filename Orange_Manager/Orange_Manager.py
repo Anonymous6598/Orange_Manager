@@ -79,7 +79,7 @@ class App(customtkinter.CTk):
             self.table.delete_row(int(self.rowline))
 
     def LoadData(self):
-        self.tablevalue[:] = []  # Clear the old table
+        self.tablevalue[:] = []
         try:
             with open(tkinter.filedialog.askopenfilename(defaultextension=".csv", filetypes=[("CSV Files", "*.csv"), ("All Files", "*.*")]), "r+", newline="") as self.file:
                 self.reader = csv.reader(self.file)
