@@ -1,4 +1,4 @@
-import customtkinter, CTkMenuBar, tkinter, tkinter.messagebox, tkinter.messagebox
+import customtkinter, CTkMenuBar, tkinter, tkinter.messagebox, tkinter.messagebox, platform
 
 class Notes(customtkinter.CTk):
     def __init__(self):
@@ -9,10 +9,14 @@ class Notes(customtkinter.CTk):
 
         self.title("Notes")
         self.geometry("600x500")
-        self.iconbitmap("slike/Orange_Manager.ico")
+        if platform.system() == f"Windows":
+            self.iconbitmap("slike/Orange_Manager.ico")
 
-        self.menu_bar = CTkMenuBar.CTkTitleMenu(self)
-        self.config(menu=self.menu_bar)
+        if platform.system() == f"Windows":
+            self.menu_bar = CTkMenuBar.CTkTitleMenu(self) 
+        
+        else:
+            self.menu_bar = CTkMenuBar.CTkMenuBar(self) 
 
         self.menu_bar.add_cascade("Otvori", command=self.open_file)
         self.menu_bar.add_cascade("Sačuvaj", command=self.save_file)
