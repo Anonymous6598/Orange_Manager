@@ -31,7 +31,7 @@ class App(customtkinter.CTk):
         self.tablevalue = [["Ime", "Menadžer", "Odeljenje", "Naziv posla", "Sati", "Dodatni komentar"]] 
 
         self.table = CTkTable.CTkTable(self.tableframe, values=self.tablevalue) 
-        self.table.pack(fill="both", expand=True) # Postavljanje tabele u prozor
+        self.table.pack(fill="both", expand=True)
 
         self.tablevaluecount = 0
 
@@ -39,7 +39,7 @@ class App(customtkinter.CTk):
         self.nameinput = customtkinter.CTkInputDialog(title="Ime", text="Unesite ime", button_fg_color="orange").get_input() 
         if self.nameinput == "" or self.nameinput == None: 
            tkinter.messagebox.showerror("Greška", "Morate da popunite polje") 
-           return # Prekida rad
+           return
 
         self.managerinput = customtkinter.CTkInputDialog(title="Menadzer", text="Unesite menadzera", button_fg_color="orange").get_input()
         if self.managerinput == "" or self.managerinput == None:
@@ -69,11 +69,11 @@ class App(customtkinter.CTk):
         self.tablevaluecount += 1
 
         if self.tablevaluecount == 1:
-            self.table.add_row(values=[f"{self.nameinput}", f"{self.managerinput}", f"{self.departmentinput}", f"{self.jobtitleinput}", f"{self.hoursinput}", f"{self.additionalcommentinput}"]) # Dodavanje novog reda u tabelu
+            self.table.add_row(values=[f"{self.nameinput}", f"{self.managerinput}", f"{self.departmentinput}", f"{self.jobtitleinput}", f"{self.hoursinput}", f"{self.additionalcommentinput}"])
         
         else:
             self.table.add_row(values=[f"{self.nameinput}", f"{self.managerinput}", f"{self.departmentinput}", f"{self.jobtitleinput}", f"{self.hoursinput}", f"{self.additionalcommentinput}"])
-            self.tablevalue.append([f"{self.nameinput}", f"{self.managerinput}", f"{self.departmentinput}", f"{self.jobtitleinput}", f"{self.hoursinput}", f"{self.additionalcommentinput}"]) # Dodavanje novih vrednosti u tabelu
+            self.tablevalue.append([f"{self.nameinput}", f"{self.managerinput}", f"{self.departmentinput}", f"{self.jobtitleinput}", f"{self.hoursinput}", f"{self.additionalcommentinput}"]) 
       
     def EditLine(self):  
         self.columnline = customtkinter.CTkInputDialog(title="Kolona", text="Unesite kolonu", button_fg_color="orange").get_input()
@@ -116,7 +116,7 @@ class App(customtkinter.CTk):
 
     def SaveData(self): 
         self.data = self.tablevalue[:] 
-        with open(tkinter.filedialog.asksaveasfilename(filetypes=[("CSV Files", "*.csv"), ("All Files", "*.*")], defaultextension=[("CSV Files", "*.csv"), ("All Files", "*.*")]), "w+", newline="") as self.file: # Otvaranje CSV fajla za pisanje
+        with open(tkinter.filedialog.asksaveasfilename(filetypes=[("CSV Files", "*.csv"), ("All Files", "*.*")], defaultextension=[("CSV Files", "*.csv"), ("All Files", "*.*")]), "w+", newline="") as self.file:
             self.writer = csv.writer(self.file)
             self.writer.writerows(self.data)
         
