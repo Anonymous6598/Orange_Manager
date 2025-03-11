@@ -55,4 +55,4 @@ class Notes(customtkinter.CTk):
         self.text_area.delete("1.0", "end")    
 
 if __name__ == "__main__":
-    app = Notes().mainloop()           
+    app = Notes().mainloop()  
