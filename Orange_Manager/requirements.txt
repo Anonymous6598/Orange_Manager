@@ -1,0 +1,5 @@
+CTkTable
+CTkMenuBar
+customtkinter
+g4f
+speechrecognition
