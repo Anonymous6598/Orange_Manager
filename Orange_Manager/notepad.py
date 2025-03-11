@@ -1,4 +1,4 @@
-import customtkinter, CTkMenuBar, tkinter, tkinter.messagebox, tkinter.messagebox
+import customtkinter, CTkMenuBar, tkinter, tkinter.messagebox, tkinter.messagebox, platform
 
 class Notes(customtkinter.CTk):
     def __init__(self):
@@ -9,33 +9,37 @@ class Notes(customtkinter.CTk):
 
         self.title("Notes")
         self.geometry("600x500")
-        self.iconbitmap("slike/Orange_Manager.ico")
+        if platform.system() == f"Windows":
+            self.iconbitmap("slike/Orange_Manager.ico")
 
-        self.menu_bar = CTkMenuBar.CTkTitleMenu(self)
-        self.config(menu=self.menu_bar)
+        if platform.system() == f"Windows":
+            self.menu_bar = CTkMenuBar.CTkTitleMenu(self) 
+        
+        else:
+            self.menu_bar = CTkMenuBar.CTkMenuBar(self) 
 
         self.menu_bar.add_cascade("Otvori", command=self.open_file)
-        self.menu_bar.add_cascade("Sacuvaj", command=self.save_file)
-        self.menu_bar.add_cascade("Obrisi", command=self.clear_text)
+        self.menu_bar.add_cascade("Sačuvaj", command=self.save_file)
+        self.menu_bar.add_cascade("Obriši", command=self.clear_text)
 
         self.text_area = customtkinter.CTkTextbox(self, wrap="word", font=("Arial", 14))
         self.text_area.pack(fill="both", expand=True)
 
     def save_file(self):
-        self.file_path = tkinter.filedialog.asksaveasfilename(filetypes=[("Text Files", "*.txt"), ("All Files", "*.*")])
+        self.file_path = tkinter.filedialog.asksaveasfilename(filetypes=[("Text Files", "*.txt"), ("All Files", "*.*")], defaultextension=[("Text Files", "*.txt"), ("All Files", "*.*")])
 
         if self.file_path:
             try:
                 with open(self.file_path, "w+", encoding="utf-8") as self.file:
                     self.file.write(self.text_area.get("1.0", tkinter.END))
-                    tkinter.messagebox.showinfo("Sacuvano", "Beleska je uspesno sacuvana.")
+                    tkinter.messagebox.showinfo("Sačuvano", "Beleška je uspešno sačuvana.")
             
             except FileNotFoundError as e:
-                tkinter.messagebox.showerror("Greska", f"Doslo je do greske pri cuvanju: {e}")
+                tkinter.messagebox.showerror("Greška", f"Došlo je do greške pri čuvanju: {e}")
 
 
     def open_file(self):
-        self.file_path = tkinter.filedialog.askopenfilename(filetypes=[("Text Files", "*.txt"), ("All Files", "*.*")])
+        self.file_path = tkinter.filedialog.askopenfilename(filetypes=[("Text Files", "*.txt"), ("All Files", "*.*")], defaultextension=[("Text Files", "*.txt"), ("All Files", "*.*")])
 
         if self.file_path:
            try:
@@ -45,7 +49,7 @@ class Notes(customtkinter.CTk):
                     self.text_area.insert("1.0", self.content)
            
            except FileNotFoundError("Fajl ne postoji") as e:
-               tkinter.messagebox.showerror("Greska", f"Doslo je do greske pri otvaranju: {e}")
+               tkinter.messagebox.showerror("Greška", f"Došlo je do greške pri otvaranju: {e}")
        
     def clear_text(self):
         self.text_area.delete("1.0", "end")    
