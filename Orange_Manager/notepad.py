@@ -1,6 +1,11 @@
-import customtkinter, CTkMenuBar, tkinter, tkinter.messagebox, tkinter.messagebox, platform
+import customtkinter, CTkMenuBar, tkinter, tkinter.messagebox, tkinter.messagebox, platform, tkinterdnd2
 
-class Notes(customtkinter.CTk):
+class Window(customtkinter.CTk, tkinterdnd2.TkinterDnD.DnDWrapper):
+    def __init__(self):
+        super().__init__()
+        self.TkdndVersion = tkinterdnd2.TkinterDnD._require(self)
+
+class Notes(Window):
     def __init__(self):
         super().__init__()
 
@@ -24,6 +29,9 @@ class Notes(customtkinter.CTk):
 
         self.text_area = customtkinter.CTkTextbox(self, wrap="word", font=("Arial", 14))
         self.text_area.pack(fill="both", expand=True)
+
+        self.text_area.drop_target_register(tkinterdnd2.DND_ALL)
+        self.text_area.dnd_bind("<<Drop>>", self.drop_files)
 
     def save_file(self):
         self.file_path = tkinter.filedialog.asksaveasfilename(filetypes=[("Text Files", "*.txt"), ("All Files", "*.*")], defaultextension=[("Text Files", "*.txt"), ("All Files", "*.*")])
@@ -50,6 +58,13 @@ class Notes(customtkinter.CTk):
            
            except FileNotFoundError("Fajl ne postoji") as e:
                tkinter.messagebox.showerror("Greška", f"Došlo je do greške pri otvaranju: {e}")
+
+    def drop_files(self, event):
+        try:
+            with open(event.data, f"r+", encoding=f"UTF-8") as self.openned_file:
+                 self.text_area.insert(f"1.0", self.openned_file.read())
+
+        except FileNotFoundError: pass
        
     def clear_text(self):
         self.text_area.delete("1.0", "end")    

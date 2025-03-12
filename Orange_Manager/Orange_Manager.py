@@ -1,8 +1,8 @@
-import customtkinter, CTkMenuBar, CTkTable, tkinter, tkinter.filedialog, tkinter.messagebox, sys, csv, platform  
+import customtkinter, CTkMenuBar, CTkTable, tkinter, tkinter.filedialog, tkinter.messagebox, sys, csv, platform
 
 class App(customtkinter.CTk): 
-    def __init__(self, *args, **kwargs): 
-        super().__init__(*args, **kwargs) 
+    def __init__(self): 
+        super().__init__() 
         
         self.title("Orange Manager")
         self.geometry("900x700") 
