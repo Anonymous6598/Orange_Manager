@@ -1,4 +1,4 @@
-import customtkinter, tkinter, typing, LLM, speech_recognition, platform
+import customtkinter, tkinter, typing, LLM, speech_recognition
 
 class AI_Window(customtkinter.CTk):
 
@@ -9,9 +9,6 @@ class AI_Window(customtkinter.CTk):
 		self.geometry(f"525x300")
 		self.resizable(False, False)
 		
-		if platform.system() == f"Windows":
-			self.iconbitmap("slike/Orange_Manager.ico")
-
 		self.ai_window_textbox = customtkinter.CTkTextbox(master=self, height=265, width=524, corner_radius=0, fg_color=f"transparent", text_color=(f"black", f"white"))
 		self.ai_window_textbox.place(x=0, y=0)
 
