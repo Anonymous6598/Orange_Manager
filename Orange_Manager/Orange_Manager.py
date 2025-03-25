@@ -1,4 +1,4 @@
-import customtkinter, CTkMenuBar, CTkTable, tkinter, tkinter.filedialog, tkinter.messagebox, sys, csv, platform  
+import customtkinter, CTkMenuBar, CTkTable, tkinter, tkinter.filedialog, tkinter.messagebox, sys, csv
 
 class App(customtkinter.CTk): 
     def __init__(self, *args, **kwargs): 
