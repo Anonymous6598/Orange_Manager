@@ -1,4 +1,4 @@
-import customtkinter, CTkMenuBar, CTkTable, tkinter, tkinter.filedialog, tkinter.messagebox, sys, csv, platform  
+import customtkinter, CTkMenuBar, CTkTable, tkinter, tkinter.filedialog, tkinter.messagebox, sys, csv
 
 class App(customtkinter.CTk): 
     def __init__(self, *args, **kwargs): 
@@ -7,15 +7,6 @@ class App(customtkinter.CTk):
         self.title("Orange Manager")
         self.geometry("900x700") 
         self.protocol("WM_DELETE_WINDOW", sys.exit) 
-
-        if platform.system() == f"Windows":
-            self.iconbitmap("slike/Orange_Manager.ico")
-
-        if platform.system() == f"Windows":
-            self.appmenu = CTkMenuBar.CTkTitleMenu(self) 
-        
-        else:
-            self.appmenu = CTkMenuBar.CTkMenuBar(self) 
             
         self.addbutton = self.appmenu.add_cascade("Dodaj", command=self.NewLine)
         self.editbutton = self.appmenu.add_cascade("Uredi", command=self.EditLine)
