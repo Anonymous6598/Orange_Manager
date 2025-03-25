@@ -8,6 +8,7 @@ class AI_Window(customtkinter.CTk):
 		self.title("ai chatbot")
 		self.geometry(f"525x300")
 		self.resizable(False, False)
+		self.iconbitmap(f"slike/Orange_Manager.ico")
 		
 		self.ai_window_textbox = customtkinter.CTkTextbox(master=self, height=265, width=524, corner_radius=0, fg_color=f"transparent", text_color=(f"black", f"white"))
 		self.ai_window_textbox.place(x=0, y=0)
@@ -31,7 +32,7 @@ class AI_Window(customtkinter.CTk):
 		self.ai_window_textbox.configure(state=f"normal")
 		self.query = LLM.LargeLanguageModel().ResponseFromAI(self.ai_window_entry_data)
 
-		self.ai_window_textbox.insert(tkinter.END, f"USER:\n{self.ai_window_entry_data}\nGPT-4o-mini:\n{self.query}\n", f"-1.0")
+		self.ai_window_textbox.insert(tkinter.END, f"USER:\n{self.ai_window_entry_data}\nGPT-4o:\n{self.query}\n", f"-1.0")
 		self.ai_window_textbox.configure(state=f"disabled")
 		self.ai_window_entry.delete(f"-1", tkinter.END)
 

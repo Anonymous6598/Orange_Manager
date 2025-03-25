@@ -6,7 +6,10 @@ class App(customtkinter.CTk):
         
         self.title("Orange Manager")
         self.geometry("900x700") 
-        self.protocol("WM_DELETE_WINDOW", sys.exit) 
+        self.iconbitmap("slike/Orange_Manager.ico")
+        self.protocol("WM_DELETE_WINDOW", sys.exit)
+        
+        self.appmenu = CTkMenuBar.CTkTitleMenu(self)
             
         self.addbutton = self.appmenu.add_cascade("Dodaj", command=self.NewLine)
         self.editbutton = self.appmenu.add_cascade("Uredi", command=self.EditLine)
