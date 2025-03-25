@@ -9,6 +9,9 @@ class Notes(customtkinter.CTk):
 
         self.title("Notes")
         self.geometry("600x500")
+        self.iconbitmap("slike/Orange_Manager.ico")
+
+        self.menu_bar = CTkMenuBar.CTkTitleMenu(self)
 
         self.menu_bar.add_cascade("Otvori", command=self.open_file)
         self.menu_bar.add_cascade("Sačuvaj", command=self.save_file)
