@@ -1,4 +1,4 @@
-import customtkinter, CTkMenuBar, tkinter, tkinter.messagebox, tkinter.messagebox, platform
+import customtkinter, CTkMenuBar, tkinter, tkinter.messagebox, tkinter.messagebox
 
 class Notes(customtkinter.CTk):
     def __init__(self):
