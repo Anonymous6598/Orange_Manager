@@ -31,7 +31,7 @@ class AI_Window(customtkinter.CTkToplevel):
 		self.ai_window_textbox.configure(state=f"normal")
 		self.query = LLM.LargeLanguageModel().ResponseFromAI(self.ai_window_entry_data)
 
-		self.ai_window_textbox.insert(tkinter.END, f"USER:\n{self.ai_window_entry_data}\nGPT-4o:\n{self.query}\n", f"-1.0")
+		self.ai_window_textbox.insert(tkinter.END, f"USER:\n{self.ai_window_entry_data}\nGPT-4o-mini:\n{self.query}\n", f"-1.0")
 		self.ai_window_textbox.configure(state=f"disabled")
 		self.ai_window_entry.delete(f"-1", tkinter.END)
 
