@@ -1,4 +1,4 @@
 # Orange_Manager
 This is open source employee management system with AI chatbot
 
-![Snimak ekrana 2025-03-25 123812](https://github.com/user-attachments/assets/871ef62e-b3d9-4121-aaba-191faae90e43)
+<img width="1919" height="1140" alt="Snimak ekrana 2025-08-01 183829" src="https://github.com/user-attachments/assets/b4b8780a-5ed1-4f58-82a0-dd6852c59356" />
