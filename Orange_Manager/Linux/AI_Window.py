@@ -25,7 +25,7 @@ class AI_Window(customtkinter.CTkToplevel):
 
 		self.ai_window_entry.bind(f"<Return>", self.Response)
 
-	def Response(self, configure):
+	def Response(self, configur = None):
 		self.ai_window_entry_data = self.ai_window_entry.get()
 
 		self.ai_window_textbox.configure(state=f"normal")
